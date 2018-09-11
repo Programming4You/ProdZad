@@ -1,0 +1,6 @@
+C:\Users\Milan\source\repos\ASP\RepositoryPatternOnion\ProdZad\ProductApp.Core\bin\Debug\ProductApp.Core.dll
+C:\Users\Milan\source\repos\ASP\RepositoryPatternOnion\ProdZad\ProductApp.Core\bin\Debug\ProductApp.Core.pdb
+C:\Users\Milan\source\repos\ASP\RepositoryPatternOnion\ProdZad\ProductApp.Core\obj\Debug\ProductApp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Milan\source\repos\ASP\RepositoryPatternOnion\ProdZad\ProductApp.Core\obj\Debug\ProductApp.Core.dll
+C:\Users\Milan\source\repos\ASP\RepositoryPatternOnion\ProdZad\ProductApp.Core\obj\Debug\ProductApp.Core.pdb
+C:\Users\Milan\source\repos\ASP\RepositoryPatternOnion\ProdZad\ProductApp.Core\bin\Debug\ProductApp.Core.dll.config

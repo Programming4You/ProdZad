@@ -1,0 +1,107 @@
+﻿@model ProductApp.Core.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.Id)
+    <div>
+        <hr/>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd data-editable>
+                @Html.DisplayFor(model => model.Name)
+                <input id="Name" class="btn btn-success btn-sm" type="button" value="Change"/>
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsActive)
+            </dd>
+            @if (Model.Created != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Created)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Created)
+                </dd>
+            }
+            else
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Modified)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Modified)
+                </dd>
+            }
+
+        </dl>
+    </div>
+}
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }, new { @class = "btn btn-success btn-sm" }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+
+    @section Scripts{
+        <script>
+            $(document).ready(function () {
+                $("#Name").bind('click',
+                    '[data-editable]',
+                    function (id) {
+
+                        var $el = $('[data-editable]');
+
+                        var $input = $('<input/>').val($el.text());
+                        $el.replaceWith($input);
+
+                        var save = function () {
+                            var $p = $('<dd data-editable />').text($input.val());
+                            $input.replaceWith($p);
+                        };
+
+                        $input.one('blur', save).focus();
+
+                        $.ajax({
+                                url: '/Products/Edit/' + id,
+                                type: 'POST',
+                                data: $('#Name').val()
+                            });
+                       
+
+                    });
+            });
+
+        </script>
+    }
